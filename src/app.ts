@@ -40,7 +40,9 @@ bot.on('inline_query', async (msg) => {
 
 const port = process.env.PORT
 const url = process.env.URL
-bot.telegram.setWebhook(url)
+bot.telegram.setWebhook(url, , {
+  source: 'server-cert.pem'
+})
 bot.startWebhook('/secret-path', null, port)
 console.log(port);
 console.log(url);
