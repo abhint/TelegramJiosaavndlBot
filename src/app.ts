@@ -1,4 +1,4 @@
-import { Telegraf,session } from 'telegraf';
+import { Telegraf, session } from 'telegraf';
 import response from './utils/jiodl';
 import message from './utils/message';
 import dotenv from 'dotenv';
@@ -18,8 +18,8 @@ bot.use(async (ctx, next) => {
     await next()
     const ms = Date.now() - start
     console.log('Response time: %sms', ms)
-  })
-  
+})
+
 
 // start commend Message 
 bot.start((msg) => {
@@ -28,7 +28,7 @@ bot.start((msg) => {
         message.start,
         { parse_mode: "HTML" }
     )
-})
+});
 
 
 // InlineQuery 
@@ -36,14 +36,14 @@ bot.on('inline_query', async (msg) => {
     const inline_query: string = msg.update.inline_query.query;
     let result: any = await response(inline_query);
     await msg.telegram.answerInlineQuery(msg.inlineQuery.id, result);
-})
+});
 
-const port = process.env.PORT
-const url = process.env.URL
-bot.telegram.setWebhook(url, , {
-  source: 'server-cert.pem'
-})
-bot.startWebhook('/secret-path', null, port)
-console.log(port);
-console.log(url);
-// bot.launch();
+
+bot.launch({
+    webhook: {
+        domain: process.env.URL,
+        port: Number(process.env.PORT)
+    }
+});
+
+// test run 
