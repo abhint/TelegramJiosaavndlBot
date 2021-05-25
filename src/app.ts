@@ -38,12 +38,10 @@ bot.on('inline_query', async (msg) => {
     await msg.telegram.answerInlineQuery(msg.inlineQuery.id, result);
 })
 
-const port: number = process.env.PORT
-const url: string = process.env.URL
+const port = process.env.PORT
+const url = process.env.URL
 bot.telegram.setWebhook(url)
-
-
-// Http webhook, for nginx/heroku users.
-bot.startWebhook('/secret-path', port)
-
+bot.startWebhook('/secret-path', null, port)
+console.log(port);
+console.log(url);
 // bot.launch();
