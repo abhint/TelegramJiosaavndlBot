@@ -14,20 +14,23 @@ const bot = new Telegraf(token);
 
 // start commend Message
 bot.start((msg) => {
-  msg.reply(`Hi ${msg.from.first_name}\n${message.start}`, {
-    parse_mode: "HTML",
-    reply_markup: {
-      inline_keyboard: [
-        [{ text: "🧑‍💻 Developer", url: "https://t.me/thankappan369" }],
-        [
-          {
-            text: "🗂 SOURCE",
-            url: "https://github.com/AbhijithNT/TelegramJiosaavndlBot",
-          },
+  msg.reply(
+    `Hi ${msg.from.first_name.replace(/[<>/]/g, "")}!\n${message.start}`,
+    {
+      parse_mode: "HTML",
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: "🧑‍💻 Developer", url: "https://t.me/thankappan369" }],
+          [
+            {
+              text: "🗂 SOURCE",
+              url: "https://github.com/AbhijithNT/TelegramJiosaavndlBot",
+            },
+          ],
         ],
-      ],
-    },
-  });
+      },
+    }
+  );
 });
 
 // InlineQuery
