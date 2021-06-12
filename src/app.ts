@@ -2,7 +2,6 @@ import { Telegraf } from "telegraf";
 import response from "./utils/jiodl";
 import message from "./utils/message";
 import dotenv from "dotenv";
-import { format } from "path";
 
 dotenv.config();
 
@@ -39,7 +38,6 @@ bot.start((msg) => {
 bot.on("inline_query", async (msg) => {
   const inline_query: string = msg.update.inline_query.query;
   let result: any = await response(inline_query);
-  console.log(result);
   await msg.answerInlineQuery(result);
 });
 
