@@ -14,9 +14,11 @@ const bot = new Telegraf(token);
 
 // start commend Message
 bot.start((msg) => {
-  msg.reply(
+  msg.telegram.sendMessage(
+    msg.chat.id,
     `Hi ${msg.from.first_name.replace(/[<>/]/g, "")}!\n${message.start}`,
     {
+      reply_to_message_id: msg.message.message_id,
       parse_mode: "HTML",
       reply_markup: {
         inline_keyboard: [
