@@ -41,14 +41,12 @@ bot.on("inline_query", async (msg) => {
   await msg.answerInlineQuery(result);
 });
 
-// bot.launch({
-//   webhook: {
-//     domain: process.env.URL,
-//     port: Number(process.env.PORT),
-//   },
-// });
-
-bot.launch();
+bot.launch({
+  webhook: {
+    domain: process.env.URL,
+    port: Number(process.env.PORT),
+  },
+});
 
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
