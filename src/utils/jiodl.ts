@@ -16,7 +16,7 @@ const response = async (q: string) => {
                     type: 'audio',
                     id: s[get].id,
                     audio_url: jioSongDownload(s[get].media_preview_url),
-                    title: s[get].song - s[get].language,
+                    title: s[get].song,
                     parse_mode: `html`,
                     audio_duration: s[get].duration,
                     caption: `<b>Name: ${s[get].song}\nYear: ${s[get].year}\nLanguage: ${s[get].language}</b>`,
