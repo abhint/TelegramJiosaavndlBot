@@ -2,6 +2,7 @@ import { Telegraf } from "telegraf";
 import response from "./utils/jiodl";
 import message from "./utils/message";
 import dotenv from "dotenv";
+import { format } from "path";
 
 dotenv.config();
 
@@ -13,7 +14,20 @@ const bot = new Telegraf(token);
 
 // start commend Message
 bot.start((msg) => {
-  msg.telegram.sendMessage(msg.chat.id, message.start, { parse_mode: "HTML" });
+  msg.reply(`Hi ${msg.from.first_name}\n${message.start}`, {
+    parse_mode: "HTML",
+    reply_markup: {
+      inline_keyboard: [
+        [{ text: "🧑‍💻 Developer", url: "https://t.me/thankappan369" }],
+        [
+          {
+            text: "🗂 SOURCE",
+            url: "https://github.com/AbhijithNT/TelegramJiosaavndlBot",
+          },
+        ],
+      ],
+    },
+  });
 });
 
 // InlineQuery
