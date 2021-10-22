@@ -15,7 +15,7 @@ export async function get_result(query: string) {
 }
 
 async function sortAPI(result: any) {
-  //   console.log(result);
+
   let songs_details: Array<object> = [];
   for (let get in result) {
     songs_details.push({
@@ -24,11 +24,10 @@ async function sortAPI(result: any) {
       audio_url: result[get].media_preview_url,
       title: result[get].song,
       parse_mode: "html",
-      audio_duration: result[get].duration,
+      audio_duration: Number(result[get].duration),
       caption: `<b>Name: ${result[get].song}\nYear: ${result[get].year}\nLanguage: ${result[get].language}</b>`,
     });
   }
   console.log(songs_details);
-  
+  return songs_details;
 }
-
