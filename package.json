@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node app.js",
     "postinstall": "tsc",
     "watch-node": "nodemon app.js",
     "watch-ts": "tsc -w",
