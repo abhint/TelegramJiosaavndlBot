@@ -1,0 +1,16 @@
+{
+  "name": "Telegram Jiosaavndl Bot",
+  "description": "telegram bot downloading the JioSaavn songs",
+  "keywords": ["telegram", "telegram-bot", "JioSaavn"],
+  "repository": "https://github.com/AbhijithNT/TelegramJiosaavndlBot",
+  "env": {
+    "BOT_TOKEN": {
+        "description": "Create a bot using @BotFather, and get the Telegram API token.",
+        "value": ""
+      },
+      "URL":{
+          "description":"heroku app name",
+          "value":"https://<your heroku app name>.herokuapp.com/"
+      }
+  }
+}
